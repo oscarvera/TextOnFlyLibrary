@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LanguageLibrary</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="addressbilla">Este texto es de string.xml</string>
+</resources>
