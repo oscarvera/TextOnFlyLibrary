@@ -21,6 +21,7 @@ class App : Application() {
         build.setAppWakeupListener(this)
         build.setIntervalWakeUpRefresh(2)
         build.setCallHeaders(hashMapOf("Postman-Token" to "ab377f56-dd23-4fdb-9639-d324408acf75"))
+        //build.setLanguageSelected("EN")
         textonfly = TextOnFly(build)
     }
 

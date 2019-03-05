@@ -42,10 +42,18 @@ class TextOnFly(build: Build) : Application.ActivityLifecycleCallbacks {
             interval = it
         }
 
+        build.languageSelected?.let { code->
+            languages.find {
+                it.key == code
+            }?.let {
+                languageChoose = languages.indexOf(it)
+            }
+        }
+
         Paper.book().write("language", languages[languageChoose])
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(Config.baseUrl)
+            .baseUrl(build.baseUrl)
             .addConverterFactory(SimpleXmlConverterFactory.create())
             .client(ClientRetrofit.getHttpClient(build.callHeaders).build())
             .build()
@@ -120,10 +128,16 @@ class Build(var context: Context, internal var baseUrl: String, internal var poi
     internal var application: Application? = null
     internal var intervalRefresh: Int? = null
     internal var callHeaders: HashMap<String,String>? = null
+    internal var languageSelected: String? = null
 
 
     fun setLanguages(listlanguages: List<Language>): Build {
         languages = listlanguages
+        return this
+    }
+
+    fun setLanguageSelected(codeLanguage: String): Build {
+        languageSelected = codeLanguage
         return this
     }
 

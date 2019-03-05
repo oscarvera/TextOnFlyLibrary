@@ -45,7 +45,7 @@ class App : Application() {
    ...
    build.setLanguages(
    	listOf(
-   		Language("ES","strings.xml"), //lagunage Code and custom url pointer 
+   		Language("ES","strings.xml"), //language Code and custom url pointer 
    		Language("EN","strings-en.xml",
    		...
    		)
@@ -67,6 +67,29 @@ class App : Application() {
    ...
 ```
 
+4. Choose the selected language by default
+
+```kotlin
+   ...
+   build.setLanguageSelected("codeLanguage")
+   ...
+```
+
+5. To obtain a text of the selected language you can use the Textview extension
+
+```kotlin
+   ...
+   textview.setTextAir("textKey")
+   ...
+```
+
+## Change language
+
+```kotlin
+   ...
+   App.textonfly.changeLanguage("codeLanguage")
+   ...
+```
 
 ## Customization
 You can customize when and how often the language dictionary is updated.

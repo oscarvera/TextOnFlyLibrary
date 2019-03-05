@@ -333,3 +333,6 @@
 .idea/libraries/Gradle__android_arch_core_runtime_1_1_1_aar.xml
 .idea/libraries/Gradle__android_arch_core_common_1_1_1_jar.xml
 .idea/codeStyles/Project.xml
+app/app.iml
+app/app.iml
+textovertheair/textovertheair.iml
