@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 class ClientRetrofit {
 
     companion object {
-        fun getHttpClient(): OkHttpClient.Builder {
+        fun getHttpClient(headers : HashMap<String,String>?): OkHttpClient.Builder {
 
             val httpClient = OkHttpClient.Builder()
 
@@ -22,8 +22,12 @@ class ClientRetrofit {
                 @Throws(IOException::class)
                 override fun intercept(chain: Interceptor.Chain): Response {
                     val request = chain.request().newBuilder()
-                        .addHeader("Postman-Token", "ab377f56-dd23-4fdb-9639-d324408acf75").build()
-                    return chain.proceed(request)
+                    headers?.let {
+                        headers.onEach {
+                            request.addHeader(it.key, it.value)
+                        }
+                    }
+                    return chain.proceed(request.build())
                 }
             })
 

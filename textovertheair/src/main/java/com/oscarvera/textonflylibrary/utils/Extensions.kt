@@ -1,11 +1,10 @@
-package com.oscarvera.textonflylibrary
+package com.oscarvera.textonflylibrary.utils
 
-import android.support.v4.content.res.ResourcesCompat
 import android.widget.TextView
 import com.oscarvera.textonflylibrary.entities.Language
 import io.paperdb.Paper
 
-fun TextView.setTextFly(id: String) {
+fun TextView.setTextAir(id: String) {
 
     var maptext = Paper.book().read((Paper.book().read("language") as Language).key) as Map<String,String>
     var text = maptext[id]
